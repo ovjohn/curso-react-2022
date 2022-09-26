@@ -1,6 +1,7 @@
 import './App.css'
 
-function retornarAleatorio(){
+// *************************************************  Ejercicio Numero 1 ****
+/*function retornarAleatorio(){
   return Math.trunc(Math.random() * 10);
 }
 
@@ -25,6 +26,19 @@ function App(){
       3+3 = {3 + 3}
     </div>
   );
-}
+}*/
+
+// *************************************************  Ejercicio Numero 2 ****
+
+function App(){
+const navegadores = ['http://www.google.com','http://www.bing.com','http://www.yahoo.com'];
+return(
+  <div>
+    <a href={navegadores[0]}>Google</a><br />
+    <a href={navegadores[1]}>Bing</a><br />
+    <a href={navegadores[2]}>Yahoo</a><br />
+  </div>
+  );
+};
 
 export default App;
