@@ -29,7 +29,7 @@ function App(){
 }*/
 
 // *************************************************  Ejercicio Numero 2 ****
-
+/*
 function App(){
 const navegadores = ['http://www.google.com','http://www.bing.com','http://www.yahoo.com'];
 return(
@@ -39,6 +39,20 @@ return(
     <a href={navegadores[2]}>Yahoo</a><br />
   </div>
   );
+};
+*/
+// *************************************************  Ejercicio Numero 3 ****
+
+function devolverTituto(titulo){
+  return (<div>{titulo}</div>);
+};
+
+function App(){
+  return (
+  <div>
+    {devolverTituto('Hola Mundo')}
+    {devolverTituto('Fin de Hola mundo')}
+  </div>)
 };
 
 export default App;
