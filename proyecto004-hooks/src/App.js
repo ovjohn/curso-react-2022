@@ -27,7 +27,6 @@ function App(){
 
   const [numerosAleatorios, setNumero] = useState([0,0,0,0,0]);
 
-
   const aleatorio = new Array(5);
 
   function generarNumerosAleatorios(){
