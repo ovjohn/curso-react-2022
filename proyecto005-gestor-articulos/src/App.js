@@ -1,30 +1,70 @@
+import { useState } from 'react';
 import './App.css'
 
-function App(){
-  return (
-    <div>
-      <form onSubmit={calcularSuma}>
-        <p>Ingrese primer Valor:
-          <input type="number" name="valor1" />
-        </p>
-        <p>Ingrese segundo valor:
-          <input type="numer" name="valor2" />
-        </p>
-        <p>
-          <input type="submit" value="Sumar" />
-        </p>
-      </form>
-    </div>
-  ); 
+
+function generalFila(articulo){
+  return(
+    <tr key={articulo.codigo}>
+      <th>
+        {articulo.codigo}
+      </th>
+      <th>
+        {articulo.descripcion}
+      </th>
+      <th>
+        {articulo.precio}
+      </th>
+    </tr>
+  );
+
 };
 
-function calcularSuma(evento){
-  evento.preventDefault();
-  const v1 = parseInt(evento.target.valor1.value, 10);
-  const v2 = parseInt(evento.target.valor2.value, 10);
-  const sumar = v1 + v2;
-  alert('La suma es: '+sumar);
+function App(){
 
+  function eliminarUltimaFila(){
+    if(articulos){
+      const temporal = Array.from(articulos);
+      temporal.pop();
+      setArticulos(temporal);
+      };
+    };
+    
+
+    const [ articulos, setArticulos ] = useState([
+    {
+      codigo: 1,
+      descripcion: 'papas',
+      precio: 12
+    },
+    {
+      codigo: 2,
+      descripcion: 'naranjas',
+      precio: 20 
+    },
+    {
+      codigo: 3,
+      descripcion: 'peras',
+      precio: 18.4
+    }]);
+   
+  
+  return (
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {articulos.map(generalFila)}         
+        </tbody>        
+      </table>
+      <button onClick={eliminarUltimaFila}>Eliminar Articulo</button>
+    </div>
+  );
 };
 
 export default App;
