@@ -2,22 +2,7 @@ import { useState } from 'react';
 import './App.css'
 
 
-function generalFila(articulo){
-  return(
-    <tr key={articulo.codigo}>
-      <th>
-        {articulo.codigo}
-      </th>
-      <th>
-        {articulo.descripcion}
-      </th>
-      <th>
-        {articulo.precio}
-      </th>
-    </tr>
-  );
 
-};
 
 function App(){
 
@@ -28,6 +13,31 @@ function App(){
       setArticulos(temporal);
       };
     };
+  
+  function borrarArticulo(codigo){
+    const temporal = articulos.filter((art) => art.codigo !== codigo);
+    setArticulos(temporal);
+  };
+
+  function generalFila(articulo){
+    return(
+      <tr key={articulo.codigo}>
+        <th>
+          {articulo.codigo}
+        </th>
+        <th>
+          {articulo.descripcion}
+        </th>
+        <th>
+          {articulo.precio}
+        </th>
+        <th>
+          <button onClick = {() => borrarArticulo(articulo.codigo)}>Borrar</button>
+        </th>
+      </tr>
+    );
+  
+  };
     
 
     const [ articulos, setArticulos ] = useState([
