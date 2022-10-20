@@ -8,4 +8,4 @@ function Dado(propiedades){
     );
 };
 
-export default Dado
+export default Dado;
